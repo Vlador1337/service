@@ -1,38 +1,16 @@
 package com.company;
 
-import java.sql.*;
-import java.nio.file.*;
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = getConnection()){
+        DBConnection dbConnection = new DBConnection();
+        Scanner scanner = new Scanner(System.in);
 
-                System.out.println("Connection to Store DB succesfull!");
-            }
-        }
-        catch(Exception ex){
-            System.out.println("Connection failed...");
+        //while (true) {
 
-            System.out.println(ex);
-        }
-    }
-
-    public static Connection getConnection() throws SQLException, IOException{
-
-        Properties props = new Properties();
-        try(InputStream in = Files.newInputStream(Paths.get("database.properties"))){
-            props.load(in);
-        }
-        String url = props.getProperty("url");
-        String username = props.getProperty("username");
-        String password = props.getProperty("password");
-
-        return DriverManager.getConnection(url, username, password);
+        //}
     }
 }
 
