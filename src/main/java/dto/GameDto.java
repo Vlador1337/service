@@ -25,7 +25,7 @@ public class GameDto {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gameID")
     public Integer getGameID() {
         return gameID;
