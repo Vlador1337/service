@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.example'
@@ -15,6 +16,13 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.6.0.Final'
     implementation 'org.hibernate:hibernate-entitymanager:5.3.7.Final'
     implementation 'mysql:mysql-connector-java:8.0.27'
+
+    //allure
+    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
+    implementation 'io.qameta.allure:allure-java-commons:2.12.1'
+    implementation 'io.qameta.allure:allure-commandline:2.12.1'
+    implementation 'io.qameta.allure:allure-junit5:2.12.1'
+
 
 }
 
