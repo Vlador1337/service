@@ -13,23 +13,23 @@ public class BaseTest {
     private DbConnector dbConnector;
 
     @BeforeEach
-    public void connectDb(){
+    public void connectDb() {
         dbConnector = new DbConnector();
         dbConnector.setSession(GameDto.class);
     }
 
-    private GameDto addGame(){
+    private GameDto addGame() {
         String gameName = "Pupa Lupa" + new Random().nextInt(500);
-        GameDto gameDto = new GameDto(1, gameName, "KazahstanGames", 590.99,"Race");
+        GameDto gameDto = new GameDto(gameName, "KazahstanGames", 590.99, "Race");
         dbConnector.addItem(gameDto);
 
         List<GameDto> gamesDtoList = (List<GameDto>) dbConnector.getListItems("games", GameDto.class);
-        GameDto lastGame = gamesDtoList.get(gamesDtoList.size()-1);
+        GameDto lastGame = gamesDtoList.get(gamesDtoList.size() - 1);
         return lastGame;
     }
 
     @Test
-    public void getItemTest(){
+    public void getItemTest() {
         GameDto newGame = addGame();
         GameDto gameFromDb = (GameDto) dbConnector.getItem(GameDto.class, newGame.getGameID());
         Assertions.assertEquals(newGame.getGameName(), gameFromDb.getGameName());
@@ -38,19 +38,19 @@ public class BaseTest {
     }
 
     @Test
-    public void addItemTest(){
+    public void addItemTest() {
         Integer addedItemId = addGame().getGameID();
-        GameDto foundGame = (GameDto) dbConnector.getItem(GameDto.class,addedItemId);
+        GameDto foundGame = (GameDto) dbConnector.getItem(GameDto.class, addedItemId);
         Assertions.assertNotNull(foundGame);
 
         dbConnector.deleteItem(foundGame);
     }
 
     @Test
-    public void deleteItemTest(){
+    public void deleteItemTest() {
         GameDto addedItemId = addGame();
         dbConnector.deleteItem(addedItemId);
-        GameDto deletedGame = (GameDto) dbConnector.getItem(GameDto.class,addedItemId.getGameID());
+        GameDto deletedGame = (GameDto) dbConnector.getItem(GameDto.class, addedItemId.getGameID());
         Assertions.assertNull(deletedGame);
     }
 }

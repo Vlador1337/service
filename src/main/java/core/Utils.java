@@ -15,7 +15,7 @@ public class Utils {
         }
     }
 
-    public static String getProperty(String key){
+    public static String getProperty(String key) {
         return prop.getProperty(key);
     }
 

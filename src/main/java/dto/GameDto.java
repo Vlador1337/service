@@ -20,7 +20,14 @@ public class GameDto {
         this.gameGenre = gameGenre;
     }
 
-    public GameDto(){
+    public GameDto(String gameName, String gameDeveloper, Double gameCost, String gameGenre) {
+        this.gameName = gameName;
+        this.gameDeveloper = gameDeveloper;
+        this.gameCost = gameCost;
+        this.gameGenre = gameGenre;
+    }
+
+    public GameDto() {
 
     }
 
@@ -73,12 +80,7 @@ public class GameDto {
 
     @Override
     public String toString() {
-        return "GameDto{" +
-                "gameID=" + gameID +
-                ", gameName='" + gameName + '\'' +
-                ", gameDeveloper='" + gameDeveloper + '\'' +
-                ", gameCost=" + gameCost +
-                ", gameGenre='" + gameGenre + '\'' +
-                '}';
+        return "\nНомер игры - " + gameID + "\n" + gameName + " в жанре "
+                + gameGenre + "\nРазработчик " + gameDeveloper + "\nЦена: " + gameCost;
     }
 }

@@ -1,10 +1,15 @@
 package core;
 
+import dto.UserDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
+import javax.jws.soap.SOAPBinding;
+import javax.persistence.NoResultException;
 import java.util.Properties;
 
 public class DbConnector {
@@ -13,7 +18,7 @@ public class DbConnector {
     private Properties properties = new Properties();
 
     public DbConnector() {
-        properties.setProperty("hibernate.connection.url",Utils.getProperty("url"));
+        properties.setProperty("hibernate.connection.url", Utils.getProperty("url"));
         properties.setProperty("hibernate.connection.user", Utils.getProperty("username"));
         properties.setProperty("hibernate.connection.password", Utils.getProperty("password"));
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
@@ -22,32 +27,45 @@ public class DbConnector {
         properties.setProperty("show_sql", "true");
     }
 
-    public void setSession(Class dto) {
+    public DbConnector setSession(Class dto) {
         SessionFactory sessionFactory = new Configuration()
                 .addAnnotatedClass(dto)
                 .addProperties(properties)
                 .buildSessionFactory();
         session = sessionFactory.openSession();
+        return this;
     }
 
-    public Object getItem(Class dto, Integer id){
+    public Object getItem(Class dto, Integer id) {
         return session.get(dto, id);
     }
 
-    public void addItem(Object dto){
+    public void addItem(Object dto) {
         Transaction transaction = session.beginTransaction();
         session.save(dto);
         transaction.commit();
     }
 
-    public void deleteItem(Object dto){
+    public void deleteItem(Object dto) {
         Transaction transaction = session.beginTransaction();
         session.delete(dto);
         transaction.commit();
     }
 
-    public Object getListItems(String table, Class dto){
+    public Object getListItems(String table, Class dto) {
         return session.createQuery(String.format("Select items From %s items", table), dto).getResultList();
+    }
+
+    public UserDto findUser(String email, String pas){
+        try{
+            Query query = session.createQuery("from users where userEmail = :mailParam and userPas = :pasParam");
+            query.setParameter("mailParam", email);
+            query.setParameter("pasParam", pas);
+            return (UserDto) query.getSingleResult();
+        } catch (NoResultException e){
+            System.out.println("Пользователь не найден");
+        }
+        return null;
     }
 
 
