@@ -29,7 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="18129784-dec4-4c86-9ed3-95b2362780a4">
-      <console name="Store" type="STANDARD" schema="store" session="Main"><![CDATA[#set global time_zone = '+5:00';
+      <console name="Store" type="STANDARD" schema="store" session="Main"><![CDATA[set global time_zone = '+5:00';
 
 #DELETE FROM `store`.`users` WHERE (`id` = '4' and `id` = '5' and `id` = '6');
 #insert into developer(devComp,devEmail,devPass) values('Volvo', 'volvodev@gmail.com','volvo123');
@@ -37,7 +37,7 @@
 #select * from users;
 #update users set id = 2 where name = 'Strey';
 #delete FROM store.users WHERE (`userID` = '15' and `userID` = '16' and `userID` = '17');
-SELECT * FROM store.users;]]></console>
+#SELECT * FROM store.users;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

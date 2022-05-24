@@ -16,8 +16,8 @@ public class GameLogic {
         dbConnector.setSession(GameDto.class);
     }
 
-    public void showGamesInStore(){
-       List<GameDto> gameDtoList = (List<GameDto>) dbConnector.getListItems("games", GameDto.class);
-       gameDtoList.forEach(x-> System.out.println(x));
+    public void showGamesInStore() {
+        List<GameDto> gameDtoList = dbConnector.getListItems("games", GameDto.class);
+        gameDtoList.forEach(x -> System.out.println(x));
     }
 }

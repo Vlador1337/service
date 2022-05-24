@@ -23,15 +23,14 @@ public class BaseTest {
         GameDto gameDto = new GameDto(gameName, "KazahstanGames", 590.99, "Race");
         dbConnector.addItem(gameDto);
 
-        List<GameDto> gamesDtoList = (List<GameDto>) dbConnector.getListItems("games", GameDto.class);
-        GameDto lastGame = gamesDtoList.get(gamesDtoList.size() - 1);
-        return lastGame;
+        List<GameDto> gamesDtoList = dbConnector.getListItems("games", GameDto.class);
+        return gamesDtoList.get(gamesDtoList.size() - 1);
     }
 
     @Test
     public void getItemTest() {
         GameDto newGame = addGame();
-        GameDto gameFromDb = (GameDto) dbConnector.getItem(GameDto.class, newGame.getGameID());
+        GameDto gameFromDb = dbConnector.getItem(GameDto.class, newGame.getGameID());
         Assertions.assertEquals(newGame.getGameName(), gameFromDb.getGameName());
 
         dbConnector.deleteItem(gameFromDb);
@@ -40,7 +39,7 @@ public class BaseTest {
     @Test
     public void addItemTest() {
         Integer addedItemId = addGame().getGameID();
-        GameDto foundGame = (GameDto) dbConnector.getItem(GameDto.class, addedItemId);
+        GameDto foundGame = dbConnector.getItem(GameDto.class, addedItemId);
         Assertions.assertNotNull(foundGame);
 
         dbConnector.deleteItem(foundGame);
@@ -50,7 +49,7 @@ public class BaseTest {
     public void deleteItemTest() {
         GameDto addedItemId = addGame();
         dbConnector.deleteItem(addedItemId);
-        GameDto deletedGame = (GameDto) dbConnector.getItem(GameDto.class, addedItemId.getGameID());
+        GameDto deletedGame = dbConnector.getItem(GameDto.class, addedItemId.getGameID());
         Assertions.assertNull(deletedGame);
     }
 }

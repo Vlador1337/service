@@ -14,15 +14,6 @@ public class UserDto {
     private Double userWallet;
 
 
-    public UserDto(Integer userID, Integer isDev, String userName, String userEmail, String userPas, Double userWallet) {
-        this.userID = userID;
-        this.isDev = isDev;
-        this.userEmail = userEmail;
-        this.userName = userName;
-        this.userPas = userPas;
-        this.userWallet = userWallet;
-    }
-
     public UserDto(Integer isDev, String userName, String userEmail, String userPas, Double userWallet) {
         this.isDev = isDev;
         this.userEmail = userEmail;

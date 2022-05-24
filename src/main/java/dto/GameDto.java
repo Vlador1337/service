@@ -12,14 +12,6 @@ public class GameDto {
     private Double gameCost;
     private String gameGenre;
 
-    public GameDto(Integer gameID, String gameName, String gameDeveloper, Double gameCost, String gameGenre) {
-        this.gameID = gameID;
-        this.gameName = gameName;
-        this.gameDeveloper = gameDeveloper;
-        this.gameCost = gameCost;
-        this.gameGenre = gameGenre;
-    }
-
     public GameDto(String gameName, String gameDeveloper, Double gameCost, String gameGenre) {
         this.gameName = gameName;
         this.gameDeveloper = gameDeveloper;

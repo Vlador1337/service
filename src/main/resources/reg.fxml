@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #18181b;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controllers.ControllerReg">
+    <children>
+        <AnchorPane layoutY="50.0" prefHeight="670.0" prefWidth="1280.0" style="-fx-background-color: #0e0e10;">
+            <children>
+                <TextField fx:id="nicknameField" layoutX="716.0" layoutY="202.0" prefHeight="50.0" prefWidth="300.0" promptText="Никнейм" style="-fx-border-color: #00CCFF; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <font>
+                        <Font name="Consolas" size="18.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="passwordField" layoutX="266.0" layoutY="310.0" prefHeight="50.0" prefWidth="300.0" promptText="Пароль" style="-fx-border-color: #00CCFF; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <font>
+                        <Font name="Consolas" size="18.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="SignUpButton" layoutX="501.0" layoutY="472.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="278.0" style="-fx-background-color: #00CCFF;" text="Зарегестрироваться" textFill="WHITE">
+                    <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                    </font>
+                </Button>
+            <TextField fx:id="emailField" layoutX="266.0" layoutY="202.0" prefHeight="50.0" prefWidth="300.0" promptText="Email" style="-fx-border-color: #00CCFF; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="walletField" layoutX="716.0" layoutY="310.0" prefHeight="50.0" prefWidth="300.0" promptText="Сумма пополнения счета" style="-fx-border-color: #00CCFF; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="isDevCheckBox" layoutX="559.0" layoutY="404.0" mnemonicParsing="false" text="Я разработчик" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="18.0" />
+               </font>
+            </CheckBox>
+            </children>
+        </AnchorPane>
+        <Label layoutX="71.0" layoutY="5.0" text="VladorShop" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Consolas Bold" size="36.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@AVA.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
