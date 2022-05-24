@@ -45,7 +45,7 @@ public class ControllerReg {
     }
 
     private boolean isFieldEmpty(TextField field) {
-        return field.getText().trim().equals("");
+        return !field.getText().trim().equals("");
     }
 
     private boolean isFormFilled() {
