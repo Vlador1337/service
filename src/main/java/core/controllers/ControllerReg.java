@@ -12,13 +12,16 @@ import static utils.ControllerUtils.switchWindowTo;
 public class ControllerReg {
 
     @FXML
-    private Button SignUpButton;
+    private Button signUpButton;
 
     @FXML
-    private TextField emailField;
+    private Button backToAuthButton;
 
     @FXML
     private CheckBox isDevCheckBox;
+
+    @FXML
+    private TextField emailField;
 
     @FXML
     private TextField nicknameField;
@@ -31,16 +34,18 @@ public class ControllerReg {
 
     @FXML
     void initialize() {
-        SignUpButton.setOnAction(event -> {
+        signUpButton.setOnAction(event -> {
             int devCode = isDevCheckBox.isSelected() ? 1 : 0;
             if (isFormFilled()) {
                 UserDto dto = new UserDto(devCode, nicknameField.getText(),
                         emailField.getText(), passwordField.getText(),
                         Double.valueOf(walletField.getText()));
                 authLogic.reg(dto);
-                SignUpButton.getScene().getWindow().hide();
                 switchWindowTo("mainApp.fxml");
             } else System.out.println("fill fields");
+        });
+        backToAuthButton.setOnAction(event -> {
+            switchWindowTo("start.fxml");
         });
     }
 

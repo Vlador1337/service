@@ -2,8 +2,10 @@ package core.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
-import static utils.ControllerUtils.switchToMainWindow;
+import static utils.ControllerUtils.authLogic;
+import static utils.ControllerUtils.switchWindowTo;
 
 public class ControllerMainApp {
 
@@ -17,10 +19,31 @@ public class ControllerMainApp {
     private Button shopButton;
 
     @FXML
+    private Button walletButton;
+
+    @FXML
+    private Label walletField;
+
+    @FXML
+    private Label nicknameField;
+
+    @FXML
     void initialize() {
+        walletField.setText("Кошелёк: " + authLogic.user.getUserWallet() + " р.");
+        nicknameField.setText(authLogic.user.getUserName() + " ");
+
+
+        walletButton.setOnAction(event -> {
+            switchWindowTo("wallet.fxml", 400, 241);
+        });
         exitButton.setOnAction(event -> {
-            exitButton.getScene().getWindow().hide();
-            switchToMainWindow();
+            switchWindowTo("start.fxml");
+        });
+        libButton.setOnAction(event -> {
+            switchWindowTo("lib.fxml");
+        });
+        shopButton.setOnAction(event -> {
+            switchWindowTo("shop.fxml");
         });
     }
 }

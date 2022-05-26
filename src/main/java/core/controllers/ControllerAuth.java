@@ -24,14 +24,12 @@ public class ControllerAuth {
     @FXML
     void initialize() {
         authSignUpButton.setOnAction(event -> {
-            authSignUpButton.getScene().getWindow().hide();
             switchWindowTo("reg.fxml");
         });
 
 
         authSignInButton.setOnAction(event -> {
             if (authLogic.auth(emailField.getText(), passwordField.getText())) {
-                authSignInButton.getScene().getWindow().hide();
                 switchWindowTo("mainApp.fxml");
             }
         });

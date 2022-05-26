@@ -6,10 +6,18 @@ import dto.GameDto;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Vlador1337
+ * Class designed for interactions with games
+ */
 public class GameLogic {
     private DbConnector dbConnector;
     private Scanner scanner;
 
+    /**
+     * Creating a constructor for Game Logic
+     * includes connection to database
+     */
     public GameLogic(Scanner scanner) {
         this.scanner = scanner;
         dbConnector = new DbConnector();

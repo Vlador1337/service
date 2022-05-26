@@ -3,6 +3,10 @@ package utils;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * @author Vlador1337
+ * Class Utils
+ */
 public class Utils {
 
     private static Properties prop = new Properties();
@@ -15,6 +19,10 @@ public class Utils {
         }
     }
 
+    /**
+     * @param key setting for connection to database
+     * @return settings
+     */
     public static String getProperty(String key) {
         return prop.getProperty(key);
     }
