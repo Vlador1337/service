@@ -1,31 +1,25 @@
 package unitTest;
 
-import core.DbConnector;
-import dto.GameDto;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Random;
-
 public class BaseTest {
-    private DbConnector dbConnector;
+  //  private DbConnector dbConnector;
 
-    @BeforeEach
-    public void connectDb() {
-        dbConnector = new DbConnector();
-        dbConnector.setSession(GameDto.class);
-    }
-
-    private GameDto addGame() {
-        String gameName = "Pupa Lupa" + new Random().nextInt(500);
-        GameDto gameDto = new GameDto(gameName, "KazahstanGames", 590.99, "Race");
-        dbConnector.addItem(gameDto);
-
-        List<GameDto> gamesDtoList = dbConnector.getListItems("games", GameDto.class);
-        return gamesDtoList.get(gamesDtoList.size() - 1);
-    }
+//   @BeforeEach
+//    public void connectDb() {
+//        dbConnector = new DbConnector();
+//        dbConnector.setSession(GameDto.class);
+//    }
+//
+//    private GameDto addGame() {
+//        String gameName = "Pupa Lupa" + new Random().nextInt(500);
+//        GameDto gameDto = new GameDto(gameName, "KazahstanGames", 590.99, "Race");
+//        dbConnector.addItem(gameDto);
+//
+//        List<GameDto> gamesDtoList = dbConnector.getListItems("games", GameDto.class);
+//        return gamesDtoList.get(gamesDtoList.size() - 1);
+//    }
 
     public boolean isTrue(){
         return true;

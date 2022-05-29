@@ -3,7 +3,7 @@ plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.10'
     id 'org.beryx.jlink' version '2.24.1'
-    id 'io.qameta.allure' version '2.9.6'
+   //id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'core'
@@ -35,6 +35,7 @@ javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
+
 dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -45,8 +46,8 @@ dependencies {
 
 
     testImplementation 'org.aspectj:aspectjweaver:1.9.5'
-    testImplementation 'io.qameta.allure:allure-junit5:2.12.1'
-    implementation 'org.jooq:joor-java-8:0.9.12'
+    //testImplementation 'io.qameta.allure:allure-junit5:2.12.1'
+
 
 
 }
